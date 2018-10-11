@@ -1,5 +1,5 @@
 #字典
-#名片管理系统2.0
+#名片管理系统3.0
 
 #cardList是列表，card是字典
 #存放名字的列表
@@ -8,7 +8,7 @@ cardList=[]
 def print_menu():
     """打印功能提示"""
     print("=================")
-    print("欢迎使用名片管理系统V2.0")
+    print("欢迎使用名片管理系统V3.0")
     print("1.添加名片")
     print("2.删除名片")
     print("3.修改名片")
@@ -21,7 +21,7 @@ def add_info():
     #取全局变量可以不用加global这一行，但修改全局变量按道理要加global xx，但添加新的元素可以不用global xxx
 
     newName = input("请输入一个新的名字:")
-    newAge = input("请输入一个新的年龄:")
+    newAge = int(input("请输入一个新的年龄:"))
     newTel = input("请输入一个新的电话:")
     newAddress = input("请输入一个新的地址:")
 
@@ -32,7 +32,7 @@ def add_info():
 def del_info():
     """删除名片信息"""
     global cardList
-    #列出想删除的字典在列表中的index,这里输入的序号是str型，要转为int
+    #列出想删除的字典在列表中的index,input默认输入为str型，要转为int
     del_num=int(input("请输入要删除的名片序号："))
     if 0 <= del_num< len(cardList):
         del_flag=input("你确定要删除么？yes Or no:")
@@ -71,11 +71,11 @@ def modify_info():
 
 def search_info():
     """查看名片是否在内"""
-    findName=input("请输入要查看的名字:")
+    find_name=input("请输入要查看的名字:")
     #遍历列表，查找是否有z指定名字的字典
     for card in cardList:
         #
-        if findName==card["name"]:
+        if find_name==card["name"]:
             print("找到了")
             break   #当找到名字之后，就不再执行else
     else:    #for语句也有else
@@ -85,7 +85,7 @@ def print_all_info():
     """查看所有信息"""
     for card in cardList:
         # 拿到名字遍历字典里的数据
-        print("姓名：%s  年龄：%s  电话：%s  地址：%s" % (card["name"], card["age"], card["tel"], card["address"]))
+        print("姓名：%s  年龄：%d  电话：%s  地址：%s" % (card["name"], card["age"], card["tel"], card["address"]))
 
 def main():
     while True:
