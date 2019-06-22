@@ -1,0 +1,352 @@
+/Users/ziyingbian/.env/正则表达式/bin/python /Applications/PyCharm.app/Contents/helpers/pydev/pydevconsole.py 59414 59415
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['/Users/ziyingbian/projectGit/pythonPractice/正则表达式'])
+PyDev console: starting.
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24)
+[Clang 6.0 (clang-600.0.57)] on darwin
+import re
+pattern="itcast"
+s="itehmia"
+re.match(pattern,s)
+s="itcast"
+re.match(pattern,s)
+<re.Match object; span=(0, 6), match='itcast'>
+result=re.match(pattern,s)
+dir(result)
+['__class__', '__copy__', '__deepcopy__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'end', 'endpos', 'expand', 'group', 'groupdict', 'groups', 'lastgroup', 'lastindex', 'pos', 're', 'regs', 'span', 'start', 'string']
+result.group()
+'itcast'
+result=re.match("itcast","itcastithemi")
+result.group()
+'itcast'
+re.match(".","i")
+<re.Match object; span=(0, 1), match='i'>
+re.match(".","ifdswe")
+<re.Match object; span=(0, 1), match='i'>
+re.match("i","\n")
+re.match("...","ab")
+re.match("...","abc")
+<re.Match object; span=(0, 3), match='abc'>
+re.match("...","abcd")
+<re.Match object; span=(0, 3), match='abc'>
+re.match("\d","1")
+<re.Match object; span=(0, 1), match='1'>
+re.match("\d","2")
+<re.Match object; span=(0, 1), match='2'>
+re.match("\d","a")
+re.match("\D","a")
+<re.Match object; span=(0, 1), match='a'>
+re.match("\s"," a")
+<re.Match object; span=(0, 1), match=' '>
+re.match("\s","\ta")
+<re.Match object; span=(0, 1), match='\t'>
+re.match("\s","\na")
+<re.Match object; span=(0, 1), match='\n'>
+re.match("\w","\na")
+re.match("\w","-a")
+re.match("\w","_a")
+<re.Match object; span=(0, 1), match='_'>
+re.match("\w","1a")
+<re.Match object; span=(0, 1), match='1'>
+re.match("\w\W","1a")
+re.match("1\d\d\d\d\d\d\d\d\d\d","18111111111")
+<re.Match object; span=(0, 11), match='18111111111'>
+re.match("1\d\d\d\d\d\d\d\d\d\d","28111111111")
+re.match("1\d\d\d\d\d\d\d\d\d\d","18111111111aaaaaahdifd")
+<re.Match object; span=(0, 11), match='18111111111'>
+re.match("1[345678]","18")
+<re.Match object; span=(0, 2), match='18'>
+re.match("1[345678]","19")
+re.match("1[^345678]","19")
+<re.Match object; span=(0, 2), match='19'>
+re.match("1[^345678]","1a")
+<re.Match object; span=(0, 2), match='1a'>
+re.match("1a-z5-9","11")
+re.match("1a-z5-9","19")
+re.match("1[a-z5-9]","11")
+re.match("1[a-z5-9]","19")
+<re.Match object; span=(0, 2), match='19'>
+re.match("1[a-z5-9]","1e")
+<re.Match object; span=(0, 2), match='1e'>
+re.match("\d*","")
+<re.Match object; span=(0, 0), match=''>
+re.match("\d*","abc")
+<re.Match object; span=(0, 0), match=''>
+re.match("\d*","123")
+<re.Match object; span=(0, 3), match='123'>
+re.match("\d*","111")
+<re.Match object; span=(0, 3), match='111'>
+re.match("\d\d\d\d\d...","728425472")
+<re.Match object; span=(0, 8), match='72842547'>
+re.match("\d+","112")
+<re.Match object; span=(0, 3), match='112'>
+re.match("\d+","abc")
+re.match("\d+","123abc")
+<re.Match object; span=(0, 3), match='123'>
+re.match("\d?","abc")
+<re.Match object; span=(0, 0), match=''>
+re.match("\d?","1abc")
+<re.Match object; span=(0, 1), match='1'>
+re.match("\d?","123abc")
+<re.Match object; span=(0, 1), match='1'>
+re.match("\d?\w","123abc")
+<re.Match object; span=(0, 2), match='12'>
+re.match("\d?[a-z]","1234abc")
+re.match("\d*[a-z]","1234abc")
+<re.Match object; span=(0, 5), match='1234a'>
+re.match("\d+[a-z]","1234abc")
+<re.Match object; span=(0, 5), match='1234a'>
+re.match("\d{4}[a-z]","1234abc")
+<re.Match object; span=(0, 5), match='1234a'>
+re.match("\d{3}[a-z]","1234abc")
+re.match("\d{3,}[a-z]","1234abc")
+<re.Match object; span=(0, 5), match='1234a'>
+re.match("\d{5,}[a-z]","1234abc")
+re.match("\d{1,}[a-z]","1234abc")
+<re.Match object; span=(0, 5), match='1234a'>
+re.match("\d{3,5}[a-z]","1234abc")
+<re.Match object; span=(0, 5), match='1234a'>
+re.match("1[35678]\d{9}","18621125947")
+<re.Match object; span=(0, 11), match='18621125947'>
+re.match("1[35678]\d{9}","18621125947abc")
+<re.Match object; span=(0, 11), match='18621125947'>
+<re.match("\d*","a")
+<re.Match object; span=(0, 0), match=''>
+s="\\nabc"
+re.match("\\\\n\w","\\nabc")
+<re.Match object; span=(0, 3), match='\\na'>
+s="\nabc"
+s
+'\nabc'
+print(s)
+abc
+s=r"\nabc"
+s
+'\\nabc'
+print(s)
+\nabc
+re.match(r"\\nabc",s)
+<re.Match object; span=(0, 5), match='\\nabc'>
+r"\\nabc"
+'\\\\nabc'
+re.match(r"1[35678]\d{9}$","18621125947")
+<re.Match object; span=(0, 11), match='18621125947'>
+re.match(r"^1[35678]\d{9}$","18621125947")
+<re.Match object; span=(0, 11), match='18621125947'>
+re.match(r"\w+ve","hover")
+<re.Match object; span=(0, 4), match='hove'>
+re.match(r"\w+ve\b","hover")
+re.match(r"\w+ve\b","hove abc")
+<re.Match object; span=(0, 4), match='hove'>
+re.match(r"\w+ve\b","hove")
+<re.Match object; span=(0, 4), match='hove'>
+re.match(r"\w+\bve\b","hover")
+re.match(r"^\w+\s\bve\b","ho ve r")
+<re.Match object; span=(0, 5), match='ho ve'>
+re.match(r"^.+\bve\b","ho ve r")
+<re.Match object; span=(0, 5), match='ho ve'>
+re.match(r"^.+ve\B","ho ve r")
+re.match(r"^.+ve\B","ho ver")
+<re.Match object; span=(0, 5), match='ho ve'>
+匹配出1-100之间的数字
+个位数字 0 1 2
+两位数字 12 34 60 50
+三位数字 只有100
+
+最高位是[1-9],下一位可以0-9，但只能出现0次或1次，用\d?,此时1-99都描述清楚了，还差0和100,
+re.match(r"^[1-9]\d?|0|100","200")
+<re.Match object; span=(0, 2), match='20'>
+re.match(r"^[1-9]\d?|0|100$","200")
+<re.Match object; span=(0, 2), match='20'>
+re.match(r"^[1-9]\d?$|0$|100$","200")
+re.match(r"^[1-9]\d?$|0$|100$","100")
+<re.Match object; span=(0, 3), match='100'>
+re.match(r"^[1-9]\d?$|0$|100$","84")
+<re.Match object; span=(0, 2), match='84'>
+re.match(r"^[1-9]\d?$|0$|100$","9")
+<re.Match object; span=(0, 1), match='9'>
+re.match(r"^[1-9]\d?$|0$|100$","0")
+<re.Match object; span=(0, 1), match='0'>
+re.match(r"^[1-9]\d?$|0$|100$","08")
+成功
+re.match(r"[1-9]?\d?$|100$", "0")
+<re.Match object; span=(0, 1), match='0'>
+re.match(r"[1-9]?\d?$|100$", "100")
+<re.Match object; span=(0, 3), match='100'>
+成功
+
+re.match(r"<h1>(.*)</h1>","<h1>匹配分组</h1>")
+<re.Match object; span=(0, 13), match='<h1>匹配分组</h1>'>
+result=re.match(r"<h1>(.*)</h1>","<h1>匹配分组</h1>")
+result.group()
+'<h1>匹配分组</h1>'
+result.group(1)
+'匹配分组'
+result=re.match(r"(<h1>).*(</h1>)","<h1>匹配分组</h1>")
+result.group()
+'<h1>匹配分组</h1>'
+result.group(1)
+'<h1>'
+result.group(2)
+'</h1>'
+result.groups()
+('<h1>', '</h1>')
+result.groups()[0]
+'<h1>'
+result.groups()[1]
+'</h1>'
+
+s="<html><h1>itcast</h1></html>"
+re.match(r"<.+><.+>.+</.+></.+>",s)
+<re.Match object; span=(0, 28), match='<html><h1>itcast</h1></html>'>
+s="<html><h1>itcast</h></html>"
+re.match(r"<.+><.+>.+</.+></.+>",s)
+<re.Match object; span=(0, 27), match='<html><h1>itcast</h></html>'>
+s="<html><h1>itcast</h1></html>"
+re.match(r"<(.+)><(.+)>.+</\2></\1>",s)
+<re.Match object; span=(0, 28), match='<html><h1>itcast</h1></html>'>
+
+匹配邮箱写法：
+a-zA-Z0-9       @163 126 gmail   .   com  cn   net
+p=r"(\w+)@(163|126|gmail|qq)\.(com|cn|net)$"
+r=re.match(p,"itcast@qq.com")
+r.group()
+'itcast@qq.com'
+r.group(1)
+'itcast'
+s="<html><h1>itcast</h1></html>"
+re.match(r"<(?P<key1>.+)><(?P<key2>.+)>.+</?P=key2></?P=key1>",s)
+re.match(r"<(?P<key1>.+)><(?P<key2>.+)>.+</(?P=key2)></(?P=key1)>",s)
+<re.Match object; span=(0, 28), match='<html><h1>itcast</h1></html>'>
+r
+<re.Match object; span=(0, 13), match='itcast@qq.com'>
+s="<html><h1>itcast</h1></html>"
+re.search(r"itcast",s)
+<re.Match object; span=(10, 16), match='itcast'>
+re.search(r"^itcast",s)
+re.search(r"^itcast$",s)
+s="itcast"
+re.search(r"^itcast$",s)
+<re.Match object; span=(0, 6), match='itcast'>
+s="itcast</h1></html>itheima"
+s="itcast</h1></html>itheima</h1>"
+re.search(r"\w+</h1>",s)
+<re.Match object; span=(0, 11), match='itcast</h1>'>
+re.findall(r"\w+</h1>",s)
+['itcast</h1>', 'itheima</h1>']
+把字符串里的php全部换成python
+re.sub(r"php","python","python java php c++ golang php")
+'python java python c++ golang python'
+
+re.sub(r"\d+","python","python=1000,php=0")
+'python=python,php=python'
+def replace(result):
+    print(result.group())
+    return "50"
+re.sub(r"\d+","python","python=1000,php=0")
+'python=python,php=python'
+re.sub(r"\d+",replace,"python=1000,php=0")
+1000
+0
+'python=50,php=50'
+def replace(result):
+    print(result.group())
+    r=int(result.group())+50
+    return r
+re.sub(r"\d+",replace,"python=1000,php=0")
+1000
+0
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/re.py", line 192, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: sequence item 1: expected str instance, int found
+def replace(result):
+    print(result.group())
+    r=int(result.group())+50
+    return str(r)
+re.sub(r"\d+",replace,"python=1000,php=0")
+1000
+0
+'python=1050,php=50'
+s=""""""
+s="""<div>
+        <p>岗位职责：</p>
+<p>完成推荐算法、数据统计、接口、后台等服务器端相关工作</p>
+<p><br></p>
+<p>必备要求：</p>
+<p>良好的自我驱动力和职业素养，工作积极主动、结果导向</p>
+<p>&nbsp;<br></p>
+<p>技术要求：</p>
+<p>1、一年以上 Python 开发经验，掌握面向对象分析和设计，了解设计模式</p>
+<p>2、掌握HTTP协议，熟悉MVC、MVVM等概念以及相关WEB开发框架</p>
+<p>3、掌握关系数据库开发设计，掌握 SQL，熟练使用 MySQL/PostgreSQL 中的一种<br></p>
+<p>4、掌握NoSQL、MQ，熟练使用对应技术解决方案</p>
+<p>5、熟悉 Javascript/CSS/HTML5，JQuery、React、Vue.js</p>
+<p>&nbsp;<br></p>
+<p>加分项：</p>
+<p>大数据，数理统计，机器学习，sklearn，高性能，大并发。</p>
+        </div>"""
+
+目标：把上文大段文本中所有的标签过滤掉(替换成空字符串)
+re.sub(r"<.+>","",s)
+'\n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n        '
+re.sub(r"<\w+>","",s)
+'\n        岗位职责：</p>\n完成推荐算法、数据统计、接口、后台等服务器端相关工作</p>\n</p>\n必备要求：</p>\n良好的自我驱动力和职业素养，工作积极主动、结果导向</p>\n&nbsp;</p>\n技术要求：</p>\n1、一年以上 Python 开发经验，掌握面向对象分析和设计，了解设计模式</p>\n2、掌握HTTP协议，熟悉MVC、MVVM等概念以及相关WEB开发框架</p>\n3、掌握关系数据库开发设计，掌握 SQL，熟练使用 MySQL/PostgreSQL 中的一种</p>\n4、掌握NoSQL、MQ，熟练使用对应技术解决方案</p>\n5、熟悉 Javascript/CSS/HTML5，JQuery、React、Vue.js</p>\n&nbsp;</p>\n加分项：</p>\n大数据，数理统计，机器学习，sklearn，高性能，大并发。</p>\n\n        </div>'
+re.sub(r"</?\w+>","",s)
+'\n        岗位职责：\n完成推荐算法、数据统计、接口、后台等服务器端相关工作\n\n必备要求：\n良好的自我驱动力和职业素养，工作积极主动、结果导向\n&nbsp;\n技术要求：\n1、一年以上 Python 开发经验，掌握面向对象分析和设计，了解设计模式\n2、掌握HTTP协议，熟悉MVC、MVVM等概念以及相关WEB开发框架\n3、掌握关系数据库开发设计，掌握 SQL，熟练使用 MySQL/PostgreSQL 中的一种\n4、掌握NoSQL、MQ，熟练使用对应技术解决方案\n5、熟悉 Javascript/CSS/HTML5，JQuery、React、Vue.js\n&nbsp;\n加分项：\n大数据，数理统计，机器学习，sklearn，高性能，大并发。\n\n        '
+s="itcast:php,java,python-cpp"
+re.split(r":|,|-",s)
+['itcast', 'php', 'java', 'python', 'cpp']
+
+贪婪模式
+关闭贪婪
+s="This is a number 234-235-22-423"
+r=re.match(r".+(\d+-\d+-\d+-\d+)",s)
+r
+<re.Match object; span=(0, 31), match='This is a number 234-235-22-423'>
+r=re.match(r".+(\d+-\d+-\d+-\d+)",s)
+r.group(1)
+'4-235-22-423'
+r.groups()
+('4-235-22-423',)
+r=re.match(r".+(\d+-\d+-\d+-\d+)",s)
+r.groups()
+('4-235-22-423',)
+r=re.match(r"(.+?)(\d+-\d+-\d+-\d+)",s)
+r.groups()
+('This is a number ', '234-235-22-423')
+
+提取斗鱼tv图片信息
+s="""<img data-original="https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973_201611131917_small.jpg" src="https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973_201611131917_small.jpg" style="display: inline;">
+"""
+re.search(r"https.+\.jpg",s)
+<re.Match object; span=(20, 179), match='https://rpic.douyucdn.cn/appCovers/2016/11/13/121>
+re.search(r"https.+\.jpg",s).group()
+'https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973_201611131917_small.jpg" src="https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973_201611131917_small.jpg'
+re.search(r"https.+?\.jpg",s).group()
+'https://rpic.douyucdn.cn/appCovers/2016/11/13/1213973_201611131917_small.jpg'
+
+
+练习1.匹配网址
+s="""http://www.interoem.com/messageinfo.asp?id=35
+http://3995503.com/class/class09/news_show.asp?id=14
+http://lib.wzmc.edu.cn/news/onews.asp?id=769
+http://www.zy-ls.com/alfx.asp?newsid=377&id=6
+http://www.fincm.com/newslist.asp?id=415"""
+re.sub(r"http://.+?/","",s)
+'messageinfo.asp?id=35\nclass/class09/news_show.asp?id=14\nnews/onews.asp?id=769\nalfx.asp?newsid=377&id=6\nnewslist.asp?id=415'
+re.sub(r"(http://.+?/).*",lambda x:x.group(1),s)
+'http://www.interoem.com/\nhttp://3995503.com/\nhttp://lib.wzmc.edu.cn/\nhttp://www.zy-ls.com/\nhttp://www.fincm.com/'
+s="""hello world ha ha
+"""
+re.split(r" +",s)
+['hello', 'world', 'ha', 'ha\n\n']
+re.findall(r"\b[a-zA-Z]\b",s)
+[]
+re.findall(r"\b[a-zA-Z]+\b",s)
+['hello', 'world', 'ha', 'ha']
+
+
+
+
