@@ -16,6 +16,6 @@ g_nums = [11,22,33]
 
 t1 = Thread(target=work1, args=(g_nums,))
 t1.start()
-
+x
 t2 = Thread(target=work2, args=(g_nums,))
 t2.start()
